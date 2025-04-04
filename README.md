@@ -19,7 +19,7 @@
 [comment]: <> (License along with this program.)
 [comment]: <> (If not, see <https://www.gnu.org/licenses/>.)
 
-# `evm-gpg-signature-verify`
+# `evm-gpg-decrypt`
 
 universal recipe for
 [user repo](
