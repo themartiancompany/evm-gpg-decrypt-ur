@@ -43,7 +43,7 @@ _offline="false"
 _git="false"
 _docs="true"
 _py="python"
-pkgbase=evm-gpg-key-address-check
+pkgbase=evm-gpg-signature-verify
 pkgname=(
   "${pkgbase}"
 )
@@ -52,13 +52,14 @@ if [[ "${_docs}" == "true" ]]; then
     "${pkgbase}-docs"
   )
 fi
-pkgver="0.0.0.0.0.0.0.0.0.0.0.0.0.1"
-_commit="b97947b2aef393c9a943292fdfae480387434303"
+pkgver="0.0.0.0.0.0.0.0.0.0.0.1"
+_commit="f3119e390abca7bc4bc313c3d351f31b7799cb24"
 pkgrel=1
 _pkgdesc=(
-  "Checks whether an OpenPGP key has its user"
-  "set appropriately for an Ethereum Virtual"
-  "Machine-compatible blockchain network account."
+  "Checks if a file is cryptographically signed"
+  "by an Ethereum Virtual Machine-compatible blockchain"
+  "network user using one of its"
+  "EVM OpenPGP Key Server self-published keys."
 )
 pkgdesc="${_pkgdesc[*]}"
 arch=(
@@ -71,7 +72,10 @@ license=(
   'AGPL3'
 )
 depends=(
-  "gpg-key-info"
+  'evm-openpgp-keyserver'
+  "findutils"
+  'gpg-signature-info'
+  'gpg-signature-verify'
   "libcrash-bash"
 )
 if [[ "${_os}" != "GNU/Linux" ]] && \
