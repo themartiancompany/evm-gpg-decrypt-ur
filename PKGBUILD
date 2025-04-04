@@ -111,7 +111,7 @@ fi
 _evmfs_network="100"
 _evmfs_address="0x69470b18f8b8b5f92b48f6199dcb147b4be96571"
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
-_archive_sum='5191c76e4154e22868e38037b068a5d2632c8c25e989d100af1355ec3b7f222e'
+_archive_sum="94e85426d9053f3aae3116ea627816188f02752e5fec0ac391338b70a8a4c0c0"
 _evmfs_archive_uri="evmfs://${_evmfs_network}/${_evmfs_address}/${_evmfs_ns}/${_archive_sum}"
 _evmfs_archive_src="${_tarname}.zip::${_evmfs_archive_uri}"
 _archive_sig_sum="2d50d974345f26e14fb17348c9fc314ce5f2d33437e3e6e9c8c8c4923226d463"
@@ -167,7 +167,7 @@ check() {
     check
 }
 
-package_evm-gpg-key-address-check() {
+package_evm-gpg-signature-verify() {
   cd \
     "${_tarname}"
   make \
@@ -181,7 +181,7 @@ package_evm-gpg-key-address-check() {
     "${pkgdir}/usr/share/licenses/${pkgname}/"
 }
 
-package_evm-gpg-key-address-check-docs() {
+package_evm-gpg-signature-verify-docs() {
   cd \
     "${_tarname}"
   make \
