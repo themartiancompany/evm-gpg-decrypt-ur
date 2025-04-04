@@ -43,7 +43,7 @@ _offline="false"
 _git="false"
 _docs="true"
 _py="python"
-pkgbase=evm-gpg-signature-verify
+pkgbase=evm-gpg-decrypt
 pkgname=(
   "${pkgbase}"
 )
@@ -53,12 +53,12 @@ if [[ "${_docs}" == "true" ]]; then
   )
 fi
 pkgver="0.0.0.0.0.0.0.0.0.0.0.1"
-_commit="f3119e390abca7bc4bc313c3d351f31b7799cb24"
+_commit="0fe4fda2025db60ca17dc279edf580f3cfd6835f"
 pkgrel=1
 _pkgdesc=(
-  "Checks if a file is cryptographically signed"
-  "by an Ethereum Virtual Machine-compatible blockchain"
-  "network user using one of its"
+  "Decrypts a file encrypted or cryptographically"
+  "signed by an Ethereum Virtual Machine-compatible"
+  "blockchain network user using one of its"
   "EVM OpenPGP Key Server self-published keys."
 )
 pkgdesc="${_pkgdesc[*]}"
@@ -73,9 +73,9 @@ license=(
 )
 depends=(
   'evm-openpgp-keyserver'
-  "findutils"
+  'findutils'
   'gpg-signature-info'
-  'gpg-signature-verify'
+  'gpg-key-info'
   "libcrash-bash"
 )
 if [[ "${_os}" != "GNU/Linux" ]] && \
@@ -111,7 +111,7 @@ fi
 _evmfs_network="100"
 _evmfs_address="0x69470b18f8b8b5f92b48f6199dcb147b4be96571"
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
-_archive_sum="94e85426d9053f3aae3116ea627816188f02752e5fec0ac391338b70a8a4c0c0"
+_archive_sum='2bebd16162160edf82ec83ba2780d721c6de95089e2c5edfad09a17cfb45c30f'
 _evmfs_archive_uri="evmfs://${_evmfs_network}/${_evmfs_address}/${_evmfs_ns}/${_archive_sum}"
 _evmfs_archive_src="${_tarname}.zip::${_evmfs_archive_uri}"
 _archive_sig_sum="53c77cf4b3ba41802e1331b9505ef0b12262f0ab9c649545f9119786ed917df4"
@@ -167,7 +167,7 @@ check() {
     check
 }
 
-package_evm-gpg-signature-verify() {
+package_evm-gpg-decrypt() {
   cd \
     "${_tarname}"
   make \
@@ -181,7 +181,7 @@ package_evm-gpg-signature-verify() {
     "${pkgdir}/usr/share/licenses/${pkgname}/"
 }
 
-package_evm-gpg-signature-verify-docs() {
+package_evm-gpg-decrypt-docs() {
   cd \
     "${_tarname}"
   make \
